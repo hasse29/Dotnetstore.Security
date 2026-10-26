@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>dotnetstore-security</ToolCommandName>
+    <PackageId>Dotnetstore.Security.Tool</PackageId>
+    <Version>1.0.0</Version>
+    <Description>Command-line tool that generates keys and secrets for Dotnetstore.Security and calibrates Argon2 settings</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Dotnetstore.Security.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dotnetstore.Security\Dotnetstore.Security.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,21 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path=".mcp.json" />
+    <File Path="CLAUDE.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Dotnetstore.Security.AspNetCore/Dotnetstore.Security.AspNetCore.csproj" />
+    <Project Path="src/Dotnetstore.Security.Tool/Dotnetstore.Security.Tool.csproj" />
+    <Project Path="src/Dotnetstore.Security/Dotnetstore.Security.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Dotnetstore.Security.AspNetCore.Tests/Dotnetstore.Security.AspNetCore.Tests.csproj" />
+    <Project Path="tests/Dotnetstore.Security.Tests/Dotnetstore.Security.Tests.csproj" />
+  </Folder>
+</Solution>
