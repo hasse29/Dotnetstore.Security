@@ -1,5 +1,11 @@
 # Dotnetstore.Security
 
+[![CI](https://github.com/hasse29/Dotnetstore.Security/actions/workflows/ci.yml/badge.svg)](https://github.com/hasse29/Dotnetstore.Security/actions/workflows/ci.yml)
+[![NuGet](https://img.shields.io/nuget/v/Dotnetstore.Security.svg)](https://www.nuget.org/packages/Dotnetstore.Security)
+[![NuGet downloads](https://img.shields.io/nuget/dt/Dotnetstore.Security.svg)](https://www.nuget.org/packages/Dotnetstore.Security)
+[![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4.svg)](https://dotnet.microsoft.com/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Common functions to secure an app, as small, well-tested building blocks for .NET 10.
 
 | Package | What it is |
