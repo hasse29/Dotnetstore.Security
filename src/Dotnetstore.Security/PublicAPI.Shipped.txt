@@ -1,1 +1,374 @@
 #nullable enable
+Dotnetstore.Security.Argon2Calibrator
+Dotnetstore.Security.Extensions.ServiceCollectionExtensions
+Dotnetstore.Security.Handlers.IApiKeyHandler
+Dotnetstore.Security.Handlers.IApiKeyHandler.Create(string! prefix) -> Dotnetstore.Security.Models.ApiKey!
+Dotnetstore.Security.Handlers.IApiKeyHandler.TryParse(string! value, out string? prefix, out string? id) -> bool
+Dotnetstore.Security.Handlers.IApiKeyHandler.Verify(string! value, string! storedHash) -> bool
+Dotnetstore.Security.Handlers.IBreachedPasswordChecker
+Dotnetstore.Security.Handlers.IBreachedPasswordChecker.CheckAsync(string! password, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Dotnetstore.Security.Models.BreachCheckResult!>!
+Dotnetstore.Security.Handlers.IEncryptionHandler
+Dotnetstore.Security.Handlers.IEncryptionHandler.Decrypt(string! payload, string? associatedData = null) -> string!
+Dotnetstore.Security.Handlers.IEncryptionHandler.DecryptBytes(string! payload, string? associatedData = null) -> byte[]!
+Dotnetstore.Security.Handlers.IEncryptionHandler.Encrypt(System.ReadOnlySpan<byte> plaintext) -> string!
+Dotnetstore.Security.Handlers.IEncryptionHandler.Encrypt(System.ReadOnlySpan<byte> plaintext, string? associatedData) -> string!
+Dotnetstore.Security.Handlers.IEncryptionHandler.Encrypt(System.ReadOnlySpan<char> plaintext) -> string!
+Dotnetstore.Security.Handlers.IEncryptionHandler.Encrypt(System.ReadOnlySpan<char> plaintext, string? associatedData) -> string!
+Dotnetstore.Security.Handlers.IEncryptionHandler.Encrypt(string! plaintext) -> string!
+Dotnetstore.Security.Handlers.IEncryptionHandler.Encrypt(string! plaintext, string? associatedData) -> string!
+Dotnetstore.Security.Handlers.IEncryptionHandler.NeedsReEncryption(string! payload) -> bool
+Dotnetstore.Security.Handlers.IEncryptionHandler.TryDecrypt(string! payload, out string? plaintext, string? associatedData = null) -> bool
+Dotnetstore.Security.Handlers.IEncryptionHandler.TryDecryptBytes(string! payload, out byte[]? plaintext, string? associatedData = null) -> bool
+Dotnetstore.Security.Handlers.IHashHandler
+Dotnetstore.Security.Handlers.IHashHandler.Hash(System.ReadOnlySpan<char> value) -> string!
+Dotnetstore.Security.Handlers.IHashHandler.Hash(string! value) -> string!
+Dotnetstore.Security.Handlers.IHashHandler.NeedsRehash(string! hash) -> bool
+Dotnetstore.Security.Handlers.IHashHandler.Verify(System.ReadOnlySpan<char> value, string! hash) -> bool
+Dotnetstore.Security.Handlers.IHashHandler.Verify(string! value, string! hash) -> bool
+Dotnetstore.Security.Handlers.ILockoutHandler
+Dotnetstore.Security.Handlers.ILockoutHandler.GetStatusAsync(string! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Dotnetstore.Security.Models.LockoutStatus!>!
+Dotnetstore.Security.Handlers.ILockoutHandler.RecordFailureAsync(string! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Dotnetstore.Security.Models.LockoutStatus!>!
+Dotnetstore.Security.Handlers.ILockoutHandler.ResetAsync(string! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Dotnetstore.Security.Handlers.ILockoutStore
+Dotnetstore.Security.Handlers.ILockoutStore.GetAsync(string! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<Dotnetstore.Security.Models.LockoutState?>
+Dotnetstore.Security.Handlers.ILockoutStore.RemoveAsync(string! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Dotnetstore.Security.Handlers.ILockoutStore.UpdateAsync(string! key, System.Func<Dotnetstore.Security.Models.LockoutState?, Dotnetstore.Security.Models.LockoutState!>! update, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<Dotnetstore.Security.Models.LockoutState!>
+Dotnetstore.Security.Handlers.IPasswordPolicy
+Dotnetstore.Security.Handlers.IPasswordPolicy.Validate(string! password, System.Collections.Generic.IEnumerable<string!>? userInputs = null) -> Dotnetstore.Security.Models.PasswordPolicyResult!
+Dotnetstore.Security.Handlers.IRefreshTokenService
+Dotnetstore.Security.Handlers.IRefreshTokenService.IssueAsync(string! subject, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Dotnetstore.Security.Models.RefreshToken!>!
+Dotnetstore.Security.Handlers.IRefreshTokenService.RevokeAsync(string! refreshToken, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Dotnetstore.Security.Handlers.IRefreshTokenService.RotateAsync(string! refreshToken, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Dotnetstore.Security.Models.RefreshResult!>!
+Dotnetstore.Security.Handlers.IRefreshTokenStore
+Dotnetstore.Security.Handlers.IRefreshTokenStore.FindAsync(string! hash, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<Dotnetstore.Security.Models.StoredRefreshToken?>
+Dotnetstore.Security.Handlers.IRefreshTokenStore.RevokeFamilyAsync(string! familyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Dotnetstore.Security.Handlers.IRefreshTokenStore.SaveAsync(Dotnetstore.Security.Models.StoredRefreshToken! token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Dotnetstore.Security.Handlers.IRefreshTokenStore.TryMarkUsedAsync(string! hash, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<bool>
+Dotnetstore.Security.Handlers.ISecretHandler
+Dotnetstore.Security.Handlers.ISecretHandler.Generate(int sizeInBytes = 32) -> Dotnetstore.Security.Models.GeneratedSecret!
+Dotnetstore.Security.Handlers.ISecretHandler.GenerateCode(int digits = 6) -> string!
+Dotnetstore.Security.Handlers.ISecretHandler.GenerateRecoveryCodes(int count = 10) -> System.Collections.Generic.IReadOnlyList<Dotnetstore.Security.Models.RecoveryCode!>!
+Dotnetstore.Security.Handlers.ISecretHandler.Hash(string! secret) -> string!
+Dotnetstore.Security.Handlers.ISecretHandler.HashRecoveryCode(string! code) -> string!
+Dotnetstore.Security.Handlers.ISecretHandler.Verify(string! secret, string! storedHash) -> bool
+Dotnetstore.Security.Handlers.ISecretHandler.VerifyRecoveryCode(string! code, string! storedHash) -> bool
+Dotnetstore.Security.Handlers.ISignedDataHandler
+Dotnetstore.Security.Handlers.ISignedDataHandler.Sign(string! payload, string! purpose, System.TimeSpan? lifetime = null) -> string!
+Dotnetstore.Security.Handlers.ISignedDataHandler.TryValidate(string! token, string! purpose, out string? payload) -> bool
+Dotnetstore.Security.Handlers.ITokenHandler
+Dotnetstore.Security.Handlers.ITokenHandler.CreateAccessToken(string! subject, System.Collections.Generic.IEnumerable<System.Security.Claims.Claim!>? claims = null) -> Dotnetstore.Security.Models.AccessToken!
+Dotnetstore.Security.Handlers.ITokenHandler.CreateRefreshToken() -> Dotnetstore.Security.Models.RefreshToken!
+Dotnetstore.Security.Handlers.ITokenHandler.HashRefreshToken(string! refreshToken) -> string!
+Dotnetstore.Security.Handlers.ITokenHandler.ValidateAccessTokenAsync(string! token) -> System.Threading.Tasks.Task<System.Security.Claims.ClaimsPrincipal?>!
+Dotnetstore.Security.Handlers.ITokenHandler.VerifyRefreshToken(string! refreshToken, string! storedHash) -> bool
+Dotnetstore.Security.Handlers.ITotpHandler
+Dotnetstore.Security.Handlers.ITotpHandler.BuildProvisioningUri(string! secret, string! account, string! issuer) -> System.Uri!
+Dotnetstore.Security.Handlers.ITotpHandler.GenerateCode(string! secret, System.DateTimeOffset? at = null) -> string!
+Dotnetstore.Security.Handlers.ITotpHandler.GenerateSecret(int sizeInBytes = 20) -> string!
+Dotnetstore.Security.Handlers.ITotpHandler.Verify(string! secret, string! code, out long timeStep, long? lastUsedTimeStep = null) -> bool
+Dotnetstore.Security.Handlers.InMemoryLockoutStore
+Dotnetstore.Security.Handlers.InMemoryLockoutStore.GetAsync(string! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<Dotnetstore.Security.Models.LockoutState?>
+Dotnetstore.Security.Handlers.InMemoryLockoutStore.InMemoryLockoutStore(System.TimeProvider! timeProvider) -> void
+Dotnetstore.Security.Handlers.InMemoryLockoutStore.RemoveAsync(string! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Dotnetstore.Security.Handlers.InMemoryLockoutStore.UpdateAsync(string! key, System.Func<Dotnetstore.Security.Models.LockoutState?, Dotnetstore.Security.Models.LockoutState!>! update, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<Dotnetstore.Security.Models.LockoutState!>
+Dotnetstore.Security.Handlers.InMemoryRefreshTokenStore
+Dotnetstore.Security.Handlers.InMemoryRefreshTokenStore.FindAsync(string! hash, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<Dotnetstore.Security.Models.StoredRefreshToken?>
+Dotnetstore.Security.Handlers.InMemoryRefreshTokenStore.InMemoryRefreshTokenStore() -> void
+Dotnetstore.Security.Handlers.InMemoryRefreshTokenStore.RevokeFamilyAsync(string! familyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Dotnetstore.Security.Handlers.InMemoryRefreshTokenStore.SaveAsync(Dotnetstore.Security.Models.StoredRefreshToken! token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Dotnetstore.Security.Handlers.InMemoryRefreshTokenStore.TryMarkUsedAsync(string! hash, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<bool>
+Dotnetstore.Security.KeyGenerator
+Dotnetstore.Security.Models.AccessToken
+Dotnetstore.Security.Models.AccessToken.<Clone>$() -> Dotnetstore.Security.Models.AccessToken!
+Dotnetstore.Security.Models.AccessToken.AccessToken(string! Value, System.DateTimeOffset ExpiresAt) -> void
+Dotnetstore.Security.Models.AccessToken.Deconstruct(out string! Value, out System.DateTimeOffset ExpiresAt) -> void
+Dotnetstore.Security.Models.AccessToken.Equals(Dotnetstore.Security.Models.AccessToken? other) -> bool
+Dotnetstore.Security.Models.AccessToken.ExpiresAt.get -> System.DateTimeOffset
+Dotnetstore.Security.Models.AccessToken.ExpiresAt.init -> void
+Dotnetstore.Security.Models.AccessToken.Value.get -> string!
+Dotnetstore.Security.Models.AccessToken.Value.init -> void
+Dotnetstore.Security.Models.ApiKey
+Dotnetstore.Security.Models.ApiKey.<Clone>$() -> Dotnetstore.Security.Models.ApiKey!
+Dotnetstore.Security.Models.ApiKey.ApiKey(string! Value, string! Prefix, string! Id, string! Hash) -> void
+Dotnetstore.Security.Models.ApiKey.Deconstruct(out string! Value, out string! Prefix, out string! Id, out string! Hash) -> void
+Dotnetstore.Security.Models.ApiKey.Equals(Dotnetstore.Security.Models.ApiKey? other) -> bool
+Dotnetstore.Security.Models.ApiKey.Hash.get -> string!
+Dotnetstore.Security.Models.ApiKey.Hash.init -> void
+Dotnetstore.Security.Models.ApiKey.Id.get -> string!
+Dotnetstore.Security.Models.ApiKey.Id.init -> void
+Dotnetstore.Security.Models.ApiKey.Prefix.get -> string!
+Dotnetstore.Security.Models.ApiKey.Prefix.init -> void
+Dotnetstore.Security.Models.ApiKey.Value.get -> string!
+Dotnetstore.Security.Models.ApiKey.Value.init -> void
+Dotnetstore.Security.Models.Argon2Options
+Dotnetstore.Security.Models.Argon2Options.Argon2Options() -> void
+Dotnetstore.Security.Models.Argon2Options.CurrentPepperId.get -> string?
+Dotnetstore.Security.Models.Argon2Options.CurrentPepperId.set -> void
+Dotnetstore.Security.Models.Argon2Options.DegreeOfParallelism.get -> int
+Dotnetstore.Security.Models.Argon2Options.DegreeOfParallelism.set -> void
+Dotnetstore.Security.Models.Argon2Options.HashSize.get -> int
+Dotnetstore.Security.Models.Argon2Options.HashSize.set -> void
+Dotnetstore.Security.Models.Argon2Options.Iterations.get -> int
+Dotnetstore.Security.Models.Argon2Options.Iterations.set -> void
+Dotnetstore.Security.Models.Argon2Options.MemorySizeKiB.get -> int
+Dotnetstore.Security.Models.Argon2Options.MemorySizeKiB.set -> void
+Dotnetstore.Security.Models.Argon2Options.Peppers.get -> System.Collections.Generic.Dictionary<string!, string!>!
+Dotnetstore.Security.Models.Argon2Options.SaltSize.get -> int
+Dotnetstore.Security.Models.Argon2Options.SaltSize.set -> void
+Dotnetstore.Security.Models.BreachCheckResult
+Dotnetstore.Security.Models.BreachCheckResult.<Clone>$() -> Dotnetstore.Security.Models.BreachCheckResult!
+Dotnetstore.Security.Models.BreachCheckResult.BreachCheckResult(Dotnetstore.Security.Models.BreachStatus Status, long Count = 0) -> void
+Dotnetstore.Security.Models.BreachCheckResult.Count.get -> long
+Dotnetstore.Security.Models.BreachCheckResult.Count.init -> void
+Dotnetstore.Security.Models.BreachCheckResult.Deconstruct(out Dotnetstore.Security.Models.BreachStatus Status, out long Count) -> void
+Dotnetstore.Security.Models.BreachCheckResult.Equals(Dotnetstore.Security.Models.BreachCheckResult? other) -> bool
+Dotnetstore.Security.Models.BreachCheckResult.Status.get -> Dotnetstore.Security.Models.BreachStatus
+Dotnetstore.Security.Models.BreachCheckResult.Status.init -> void
+Dotnetstore.Security.Models.BreachStatus
+Dotnetstore.Security.Models.BreachStatus.Breached = 1 -> Dotnetstore.Security.Models.BreachStatus
+Dotnetstore.Security.Models.BreachStatus.NotBreached = 0 -> Dotnetstore.Security.Models.BreachStatus
+Dotnetstore.Security.Models.BreachStatus.Unknown = 2 -> Dotnetstore.Security.Models.BreachStatus
+Dotnetstore.Security.Models.BreachedPasswordOptions
+Dotnetstore.Security.Models.BreachedPasswordOptions.BaseAddress.get -> System.Uri!
+Dotnetstore.Security.Models.BreachedPasswordOptions.BaseAddress.set -> void
+Dotnetstore.Security.Models.BreachedPasswordOptions.BreachedPasswordOptions() -> void
+Dotnetstore.Security.Models.BreachedPasswordOptions.MinimumBreachCount.get -> int
+Dotnetstore.Security.Models.BreachedPasswordOptions.MinimumBreachCount.set -> void
+Dotnetstore.Security.Models.BreachedPasswordOptions.Timeout.get -> System.TimeSpan
+Dotnetstore.Security.Models.BreachedPasswordOptions.Timeout.set -> void
+Dotnetstore.Security.Models.EncryptionOptions
+Dotnetstore.Security.Models.EncryptionOptions.CurrentKeyId.get -> string?
+Dotnetstore.Security.Models.EncryptionOptions.CurrentKeyId.set -> void
+Dotnetstore.Security.Models.EncryptionOptions.EncryptionOptions() -> void
+Dotnetstore.Security.Models.EncryptionOptions.Keys.get -> System.Collections.Generic.Dictionary<string!, string!>!
+Dotnetstore.Security.Models.GeneratedSecret
+Dotnetstore.Security.Models.GeneratedSecret.<Clone>$() -> Dotnetstore.Security.Models.GeneratedSecret!
+Dotnetstore.Security.Models.GeneratedSecret.Deconstruct(out string! Value, out string! Hash) -> void
+Dotnetstore.Security.Models.GeneratedSecret.Equals(Dotnetstore.Security.Models.GeneratedSecret? other) -> bool
+Dotnetstore.Security.Models.GeneratedSecret.GeneratedSecret(string! Value, string! Hash) -> void
+Dotnetstore.Security.Models.GeneratedSecret.Hash.get -> string!
+Dotnetstore.Security.Models.GeneratedSecret.Hash.init -> void
+Dotnetstore.Security.Models.GeneratedSecret.Value.get -> string!
+Dotnetstore.Security.Models.GeneratedSecret.Value.init -> void
+Dotnetstore.Security.Models.LockoutOptions
+Dotnetstore.Security.Models.LockoutOptions.FailureWindow.get -> System.TimeSpan
+Dotnetstore.Security.Models.LockoutOptions.FailureWindow.set -> void
+Dotnetstore.Security.Models.LockoutOptions.LockoutDuration.get -> System.TimeSpan
+Dotnetstore.Security.Models.LockoutOptions.LockoutDuration.set -> void
+Dotnetstore.Security.Models.LockoutOptions.LockoutOptions() -> void
+Dotnetstore.Security.Models.LockoutOptions.MaxFailedAttempts.get -> int
+Dotnetstore.Security.Models.LockoutOptions.MaxFailedAttempts.set -> void
+Dotnetstore.Security.Models.LockoutState
+Dotnetstore.Security.Models.LockoutState.<Clone>$() -> Dotnetstore.Security.Models.LockoutState!
+Dotnetstore.Security.Models.LockoutState.Deconstruct(out int FailureCount, out System.DateTimeOffset WindowStart, out System.DateTimeOffset? LockedUntil, out System.DateTimeOffset ExpiresAt) -> void
+Dotnetstore.Security.Models.LockoutState.Equals(Dotnetstore.Security.Models.LockoutState? other) -> bool
+Dotnetstore.Security.Models.LockoutState.ExpiresAt.get -> System.DateTimeOffset
+Dotnetstore.Security.Models.LockoutState.ExpiresAt.init -> void
+Dotnetstore.Security.Models.LockoutState.FailureCount.get -> int
+Dotnetstore.Security.Models.LockoutState.FailureCount.init -> void
+Dotnetstore.Security.Models.LockoutState.LockedUntil.get -> System.DateTimeOffset?
+Dotnetstore.Security.Models.LockoutState.LockedUntil.init -> void
+Dotnetstore.Security.Models.LockoutState.LockoutState(int FailureCount, System.DateTimeOffset WindowStart, System.DateTimeOffset? LockedUntil, System.DateTimeOffset ExpiresAt) -> void
+Dotnetstore.Security.Models.LockoutState.WindowStart.get -> System.DateTimeOffset
+Dotnetstore.Security.Models.LockoutState.WindowStart.init -> void
+Dotnetstore.Security.Models.LockoutStatus
+Dotnetstore.Security.Models.LockoutStatus.<Clone>$() -> Dotnetstore.Security.Models.LockoutStatus!
+Dotnetstore.Security.Models.LockoutStatus.Deconstruct(out bool IsLockedOut, out int RemainingAttempts, out System.DateTimeOffset? LockedUntil) -> void
+Dotnetstore.Security.Models.LockoutStatus.Equals(Dotnetstore.Security.Models.LockoutStatus? other) -> bool
+Dotnetstore.Security.Models.LockoutStatus.IsLockedOut.get -> bool
+Dotnetstore.Security.Models.LockoutStatus.IsLockedOut.init -> void
+Dotnetstore.Security.Models.LockoutStatus.LockedUntil.get -> System.DateTimeOffset?
+Dotnetstore.Security.Models.LockoutStatus.LockedUntil.init -> void
+Dotnetstore.Security.Models.LockoutStatus.LockoutStatus(bool IsLockedOut, int RemainingAttempts, System.DateTimeOffset? LockedUntil) -> void
+Dotnetstore.Security.Models.LockoutStatus.RemainingAttempts.get -> int
+Dotnetstore.Security.Models.LockoutStatus.RemainingAttempts.init -> void
+Dotnetstore.Security.Models.PasswordPolicyOptions
+Dotnetstore.Security.Models.PasswordPolicyOptions.MaxLength.get -> int
+Dotnetstore.Security.Models.PasswordPolicyOptions.MaxLength.set -> void
+Dotnetstore.Security.Models.PasswordPolicyOptions.MinLength.get -> int
+Dotnetstore.Security.Models.PasswordPolicyOptions.MinLength.set -> void
+Dotnetstore.Security.Models.PasswordPolicyOptions.PasswordPolicyOptions() -> void
+Dotnetstore.Security.Models.PasswordPolicyOptions.RejectCommonPasswords.get -> bool
+Dotnetstore.Security.Models.PasswordPolicyOptions.RejectCommonPasswords.set -> void
+Dotnetstore.Security.Models.PasswordPolicyOptions.RejectPredictablePasswords.get -> bool
+Dotnetstore.Security.Models.PasswordPolicyOptions.RejectPredictablePasswords.set -> void
+Dotnetstore.Security.Models.PasswordPolicyOptions.RejectUserInputs.get -> bool
+Dotnetstore.Security.Models.PasswordPolicyOptions.RejectUserInputs.set -> void
+Dotnetstore.Security.Models.PasswordPolicyResult
+Dotnetstore.Security.Models.PasswordPolicyResult.<Clone>$() -> Dotnetstore.Security.Models.PasswordPolicyResult!
+Dotnetstore.Security.Models.PasswordPolicyResult.Deconstruct(out System.Collections.Generic.IReadOnlyList<Dotnetstore.Security.Models.PasswordViolation>! Violations) -> void
+Dotnetstore.Security.Models.PasswordPolicyResult.Equals(Dotnetstore.Security.Models.PasswordPolicyResult? other) -> bool
+Dotnetstore.Security.Models.PasswordPolicyResult.IsValid.get -> bool
+Dotnetstore.Security.Models.PasswordPolicyResult.PasswordPolicyResult(System.Collections.Generic.IReadOnlyList<Dotnetstore.Security.Models.PasswordViolation>! Violations) -> void
+Dotnetstore.Security.Models.PasswordPolicyResult.Violations.get -> System.Collections.Generic.IReadOnlyList<Dotnetstore.Security.Models.PasswordViolation>!
+Dotnetstore.Security.Models.PasswordPolicyResult.Violations.init -> void
+Dotnetstore.Security.Models.PasswordViolation
+Dotnetstore.Security.Models.PasswordViolation.Common = 2 -> Dotnetstore.Security.Models.PasswordViolation
+Dotnetstore.Security.Models.PasswordViolation.ContainsUserInput = 4 -> Dotnetstore.Security.Models.PasswordViolation
+Dotnetstore.Security.Models.PasswordViolation.Predictable = 3 -> Dotnetstore.Security.Models.PasswordViolation
+Dotnetstore.Security.Models.PasswordViolation.TooLong = 1 -> Dotnetstore.Security.Models.PasswordViolation
+Dotnetstore.Security.Models.PasswordViolation.TooShort = 0 -> Dotnetstore.Security.Models.PasswordViolation
+Dotnetstore.Security.Models.RecoveryCode
+Dotnetstore.Security.Models.RecoveryCode.<Clone>$() -> Dotnetstore.Security.Models.RecoveryCode!
+Dotnetstore.Security.Models.RecoveryCode.Code.get -> string!
+Dotnetstore.Security.Models.RecoveryCode.Code.init -> void
+Dotnetstore.Security.Models.RecoveryCode.Deconstruct(out string! Code, out string! Hash) -> void
+Dotnetstore.Security.Models.RecoveryCode.Equals(Dotnetstore.Security.Models.RecoveryCode? other) -> bool
+Dotnetstore.Security.Models.RecoveryCode.Hash.get -> string!
+Dotnetstore.Security.Models.RecoveryCode.Hash.init -> void
+Dotnetstore.Security.Models.RecoveryCode.RecoveryCode(string! Code, string! Hash) -> void
+Dotnetstore.Security.Models.RefreshResult
+Dotnetstore.Security.Models.RefreshResult.<Clone>$() -> Dotnetstore.Security.Models.RefreshResult!
+Dotnetstore.Security.Models.RefreshResult.Deconstruct(out Dotnetstore.Security.Models.RefreshStatus Status, out string? Subject, out Dotnetstore.Security.Models.RefreshToken? NewToken) -> void
+Dotnetstore.Security.Models.RefreshResult.Equals(Dotnetstore.Security.Models.RefreshResult? other) -> bool
+Dotnetstore.Security.Models.RefreshResult.IsSuccess.get -> bool
+Dotnetstore.Security.Models.RefreshResult.NewToken.get -> Dotnetstore.Security.Models.RefreshToken?
+Dotnetstore.Security.Models.RefreshResult.NewToken.init -> void
+Dotnetstore.Security.Models.RefreshResult.RefreshResult(Dotnetstore.Security.Models.RefreshStatus Status, string? Subject = null, Dotnetstore.Security.Models.RefreshToken? NewToken = null) -> void
+Dotnetstore.Security.Models.RefreshResult.Status.get -> Dotnetstore.Security.Models.RefreshStatus
+Dotnetstore.Security.Models.RefreshResult.Status.init -> void
+Dotnetstore.Security.Models.RefreshResult.Subject.get -> string?
+Dotnetstore.Security.Models.RefreshResult.Subject.init -> void
+Dotnetstore.Security.Models.RefreshStatus
+Dotnetstore.Security.Models.RefreshStatus.Expired = 2 -> Dotnetstore.Security.Models.RefreshStatus
+Dotnetstore.Security.Models.RefreshStatus.Invalid = 1 -> Dotnetstore.Security.Models.RefreshStatus
+Dotnetstore.Security.Models.RefreshStatus.Reused = 4 -> Dotnetstore.Security.Models.RefreshStatus
+Dotnetstore.Security.Models.RefreshStatus.Revoked = 3 -> Dotnetstore.Security.Models.RefreshStatus
+Dotnetstore.Security.Models.RefreshStatus.Success = 0 -> Dotnetstore.Security.Models.RefreshStatus
+Dotnetstore.Security.Models.RefreshToken
+Dotnetstore.Security.Models.RefreshToken.<Clone>$() -> Dotnetstore.Security.Models.RefreshToken!
+Dotnetstore.Security.Models.RefreshToken.Deconstruct(out string! Value, out string! Hash, out System.DateTimeOffset ExpiresAt) -> void
+Dotnetstore.Security.Models.RefreshToken.Equals(Dotnetstore.Security.Models.RefreshToken? other) -> bool
+Dotnetstore.Security.Models.RefreshToken.ExpiresAt.get -> System.DateTimeOffset
+Dotnetstore.Security.Models.RefreshToken.ExpiresAt.init -> void
+Dotnetstore.Security.Models.RefreshToken.Hash.get -> string!
+Dotnetstore.Security.Models.RefreshToken.Hash.init -> void
+Dotnetstore.Security.Models.RefreshToken.RefreshToken(string! Value, string! Hash, System.DateTimeOffset ExpiresAt) -> void
+Dotnetstore.Security.Models.RefreshToken.Value.get -> string!
+Dotnetstore.Security.Models.RefreshToken.Value.init -> void
+Dotnetstore.Security.Models.SignedDataOptions
+Dotnetstore.Security.Models.SignedDataOptions.CurrentKeyId.get -> string?
+Dotnetstore.Security.Models.SignedDataOptions.CurrentKeyId.set -> void
+Dotnetstore.Security.Models.SignedDataOptions.DefaultLifetime.get -> System.TimeSpan
+Dotnetstore.Security.Models.SignedDataOptions.DefaultLifetime.set -> void
+Dotnetstore.Security.Models.SignedDataOptions.Keys.get -> System.Collections.Generic.Dictionary<string!, string!>!
+Dotnetstore.Security.Models.SignedDataOptions.SignedDataOptions() -> void
+Dotnetstore.Security.Models.SigningAlgorithm
+Dotnetstore.Security.Models.SigningAlgorithm.ES256 = 2 -> Dotnetstore.Security.Models.SigningAlgorithm
+Dotnetstore.Security.Models.SigningAlgorithm.HS256 = 0 -> Dotnetstore.Security.Models.SigningAlgorithm
+Dotnetstore.Security.Models.SigningAlgorithm.RS256 = 1 -> Dotnetstore.Security.Models.SigningAlgorithm
+Dotnetstore.Security.Models.StoredRefreshToken
+Dotnetstore.Security.Models.StoredRefreshToken.<Clone>$() -> Dotnetstore.Security.Models.StoredRefreshToken!
+Dotnetstore.Security.Models.StoredRefreshToken.Deconstruct(out string! Hash, out string! Subject, out string! FamilyId, out System.DateTimeOffset ExpiresAt, out bool IsUsed, out bool IsRevoked) -> void
+Dotnetstore.Security.Models.StoredRefreshToken.Equals(Dotnetstore.Security.Models.StoredRefreshToken? other) -> bool
+Dotnetstore.Security.Models.StoredRefreshToken.ExpiresAt.get -> System.DateTimeOffset
+Dotnetstore.Security.Models.StoredRefreshToken.ExpiresAt.init -> void
+Dotnetstore.Security.Models.StoredRefreshToken.FamilyId.get -> string!
+Dotnetstore.Security.Models.StoredRefreshToken.FamilyId.init -> void
+Dotnetstore.Security.Models.StoredRefreshToken.Hash.get -> string!
+Dotnetstore.Security.Models.StoredRefreshToken.Hash.init -> void
+Dotnetstore.Security.Models.StoredRefreshToken.IsRevoked.get -> bool
+Dotnetstore.Security.Models.StoredRefreshToken.IsRevoked.init -> void
+Dotnetstore.Security.Models.StoredRefreshToken.IsUsed.get -> bool
+Dotnetstore.Security.Models.StoredRefreshToken.IsUsed.init -> void
+Dotnetstore.Security.Models.StoredRefreshToken.StoredRefreshToken(string! Hash, string! Subject, string! FamilyId, System.DateTimeOffset ExpiresAt, bool IsUsed = false, bool IsRevoked = false) -> void
+Dotnetstore.Security.Models.StoredRefreshToken.Subject.get -> string!
+Dotnetstore.Security.Models.StoredRefreshToken.Subject.init -> void
+Dotnetstore.Security.Models.TokenOptions
+Dotnetstore.Security.Models.TokenOptions.AccessTokenLifetime.get -> System.TimeSpan
+Dotnetstore.Security.Models.TokenOptions.AccessTokenLifetime.set -> void
+Dotnetstore.Security.Models.TokenOptions.Algorithm.get -> Dotnetstore.Security.Models.SigningAlgorithm
+Dotnetstore.Security.Models.TokenOptions.Algorithm.set -> void
+Dotnetstore.Security.Models.TokenOptions.Audience.get -> string!
+Dotnetstore.Security.Models.TokenOptions.Audience.set -> void
+Dotnetstore.Security.Models.TokenOptions.ClockSkew.get -> System.TimeSpan
+Dotnetstore.Security.Models.TokenOptions.ClockSkew.set -> void
+Dotnetstore.Security.Models.TokenOptions.CurrentSigningKeyId.get -> string?
+Dotnetstore.Security.Models.TokenOptions.CurrentSigningKeyId.set -> void
+Dotnetstore.Security.Models.TokenOptions.Issuer.get -> string!
+Dotnetstore.Security.Models.TokenOptions.Issuer.set -> void
+Dotnetstore.Security.Models.TokenOptions.RefreshTokenLifetime.get -> System.TimeSpan
+Dotnetstore.Security.Models.TokenOptions.RefreshTokenLifetime.set -> void
+Dotnetstore.Security.Models.TokenOptions.SigningKeys.get -> System.Collections.Generic.Dictionary<string!, string!>!
+Dotnetstore.Security.Models.TokenOptions.TokenOptions() -> void
+Dotnetstore.Security.Models.TotpOptions
+Dotnetstore.Security.Models.TotpOptions.AllowedDriftSteps.get -> int
+Dotnetstore.Security.Models.TotpOptions.AllowedDriftSteps.set -> void
+Dotnetstore.Security.Models.TotpOptions.Digits.get -> int
+Dotnetstore.Security.Models.TotpOptions.Digits.set -> void
+Dotnetstore.Security.Models.TotpOptions.PeriodSeconds.get -> int
+Dotnetstore.Security.Models.TotpOptions.PeriodSeconds.set -> void
+Dotnetstore.Security.Models.TotpOptions.TotpOptions() -> void
+override Dotnetstore.Security.Models.AccessToken.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.AccessToken.GetHashCode() -> int
+override Dotnetstore.Security.Models.AccessToken.ToString() -> string!
+override Dotnetstore.Security.Models.ApiKey.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.ApiKey.GetHashCode() -> int
+override Dotnetstore.Security.Models.ApiKey.ToString() -> string!
+override Dotnetstore.Security.Models.BreachCheckResult.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.BreachCheckResult.GetHashCode() -> int
+override Dotnetstore.Security.Models.BreachCheckResult.ToString() -> string!
+override Dotnetstore.Security.Models.GeneratedSecret.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.GeneratedSecret.GetHashCode() -> int
+override Dotnetstore.Security.Models.GeneratedSecret.ToString() -> string!
+override Dotnetstore.Security.Models.LockoutState.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.LockoutState.GetHashCode() -> int
+override Dotnetstore.Security.Models.LockoutState.ToString() -> string!
+override Dotnetstore.Security.Models.LockoutStatus.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.LockoutStatus.GetHashCode() -> int
+override Dotnetstore.Security.Models.LockoutStatus.ToString() -> string!
+override Dotnetstore.Security.Models.PasswordPolicyResult.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.PasswordPolicyResult.GetHashCode() -> int
+override Dotnetstore.Security.Models.PasswordPolicyResult.ToString() -> string!
+override Dotnetstore.Security.Models.RecoveryCode.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.RecoveryCode.GetHashCode() -> int
+override Dotnetstore.Security.Models.RecoveryCode.ToString() -> string!
+override Dotnetstore.Security.Models.RefreshResult.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.RefreshResult.GetHashCode() -> int
+override Dotnetstore.Security.Models.RefreshResult.ToString() -> string!
+override Dotnetstore.Security.Models.RefreshToken.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.RefreshToken.GetHashCode() -> int
+override Dotnetstore.Security.Models.RefreshToken.ToString() -> string!
+override Dotnetstore.Security.Models.StoredRefreshToken.Equals(object? obj) -> bool
+override Dotnetstore.Security.Models.StoredRefreshToken.GetHashCode() -> int
+override Dotnetstore.Security.Models.StoredRefreshToken.ToString() -> string!
+static Dotnetstore.Security.Argon2Calibrator.Calibrate(System.TimeSpan targetTime, int memorySizeKiB = 65536, int degreeOfParallelism = 4) -> (Dotnetstore.Security.Models.Argon2Options! Options, System.TimeSpan Elapsed)
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddBreachedPasswordChecker(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.Models.BreachedPasswordOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddEncryption(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.Models.EncryptionOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddLockout(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.Models.LockoutOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddLockout<TStore>(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.Models.LockoutOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddPasswordPolicy(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.Models.PasswordPolicyOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddRefreshTokenRotation(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddRefreshTokenRotation<TStore>(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddSecrets(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddSecurity(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.Models.Argon2Options!>? configureArgon2 = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddSignedData(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.Models.SignedDataOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddTokens(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.Models.TokenOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.Extensions.ServiceCollectionExtensions.AddTotp(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.Models.TotpOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.KeyGenerator.CreateEcKeyPair() -> (string! PrivateKeyPem, string! PublicKeyPem)
+static Dotnetstore.Security.KeyGenerator.CreateEncryptionKey() -> string!
+static Dotnetstore.Security.KeyGenerator.CreatePepper() -> string!
+static Dotnetstore.Security.KeyGenerator.CreateRsaKeyPair(int keySizeInBits = 3072) -> (string! PrivateKeyPem, string! PublicKeyPem)
+static Dotnetstore.Security.KeyGenerator.CreateSecret(int sizeInBytes = 64) -> string!
+static Dotnetstore.Security.Models.AccessToken.operator !=(Dotnetstore.Security.Models.AccessToken? left, Dotnetstore.Security.Models.AccessToken? right) -> bool
+static Dotnetstore.Security.Models.AccessToken.operator ==(Dotnetstore.Security.Models.AccessToken? left, Dotnetstore.Security.Models.AccessToken? right) -> bool
+static Dotnetstore.Security.Models.ApiKey.operator !=(Dotnetstore.Security.Models.ApiKey? left, Dotnetstore.Security.Models.ApiKey? right) -> bool
+static Dotnetstore.Security.Models.ApiKey.operator ==(Dotnetstore.Security.Models.ApiKey? left, Dotnetstore.Security.Models.ApiKey? right) -> bool
+static Dotnetstore.Security.Models.BreachCheckResult.operator !=(Dotnetstore.Security.Models.BreachCheckResult? left, Dotnetstore.Security.Models.BreachCheckResult? right) -> bool
+static Dotnetstore.Security.Models.BreachCheckResult.operator ==(Dotnetstore.Security.Models.BreachCheckResult? left, Dotnetstore.Security.Models.BreachCheckResult? right) -> bool
+static Dotnetstore.Security.Models.GeneratedSecret.operator !=(Dotnetstore.Security.Models.GeneratedSecret? left, Dotnetstore.Security.Models.GeneratedSecret? right) -> bool
+static Dotnetstore.Security.Models.GeneratedSecret.operator ==(Dotnetstore.Security.Models.GeneratedSecret? left, Dotnetstore.Security.Models.GeneratedSecret? right) -> bool
+static Dotnetstore.Security.Models.LockoutState.operator !=(Dotnetstore.Security.Models.LockoutState? left, Dotnetstore.Security.Models.LockoutState? right) -> bool
+static Dotnetstore.Security.Models.LockoutState.operator ==(Dotnetstore.Security.Models.LockoutState? left, Dotnetstore.Security.Models.LockoutState? right) -> bool
+static Dotnetstore.Security.Models.LockoutStatus.operator !=(Dotnetstore.Security.Models.LockoutStatus? left, Dotnetstore.Security.Models.LockoutStatus? right) -> bool
+static Dotnetstore.Security.Models.LockoutStatus.operator ==(Dotnetstore.Security.Models.LockoutStatus? left, Dotnetstore.Security.Models.LockoutStatus? right) -> bool
+static Dotnetstore.Security.Models.PasswordPolicyResult.operator !=(Dotnetstore.Security.Models.PasswordPolicyResult? left, Dotnetstore.Security.Models.PasswordPolicyResult? right) -> bool
+static Dotnetstore.Security.Models.PasswordPolicyResult.operator ==(Dotnetstore.Security.Models.PasswordPolicyResult? left, Dotnetstore.Security.Models.PasswordPolicyResult? right) -> bool
+static Dotnetstore.Security.Models.RecoveryCode.operator !=(Dotnetstore.Security.Models.RecoveryCode? left, Dotnetstore.Security.Models.RecoveryCode? right) -> bool
+static Dotnetstore.Security.Models.RecoveryCode.operator ==(Dotnetstore.Security.Models.RecoveryCode? left, Dotnetstore.Security.Models.RecoveryCode? right) -> bool
+static Dotnetstore.Security.Models.RefreshResult.operator !=(Dotnetstore.Security.Models.RefreshResult? left, Dotnetstore.Security.Models.RefreshResult? right) -> bool
+static Dotnetstore.Security.Models.RefreshResult.operator ==(Dotnetstore.Security.Models.RefreshResult? left, Dotnetstore.Security.Models.RefreshResult? right) -> bool
+static Dotnetstore.Security.Models.RefreshToken.operator !=(Dotnetstore.Security.Models.RefreshToken? left, Dotnetstore.Security.Models.RefreshToken? right) -> bool
+static Dotnetstore.Security.Models.RefreshToken.operator ==(Dotnetstore.Security.Models.RefreshToken? left, Dotnetstore.Security.Models.RefreshToken? right) -> bool
+static Dotnetstore.Security.Models.StoredRefreshToken.operator !=(Dotnetstore.Security.Models.StoredRefreshToken? left, Dotnetstore.Security.Models.StoredRefreshToken? right) -> bool
+static Dotnetstore.Security.Models.StoredRefreshToken.operator ==(Dotnetstore.Security.Models.StoredRefreshToken? left, Dotnetstore.Security.Models.StoredRefreshToken? right) -> bool

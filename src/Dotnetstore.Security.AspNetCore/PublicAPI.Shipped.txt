@@ -1,1 +1,35 @@
 #nullable enable
+Dotnetstore.Security.AspNetCore.AuthenticationBuilderExtensions
+Dotnetstore.Security.AspNetCore.LoginRateLimitOptions
+Dotnetstore.Security.AspNetCore.LoginRateLimitOptions.LoginRateLimitOptions() -> void
+Dotnetstore.Security.AspNetCore.LoginRateLimitOptions.PermitLimit.get -> int
+Dotnetstore.Security.AspNetCore.LoginRateLimitOptions.PermitLimit.set -> void
+Dotnetstore.Security.AspNetCore.LoginRateLimitOptions.Window.get -> System.TimeSpan
+Dotnetstore.Security.AspNetCore.LoginRateLimitOptions.Window.set -> void
+Dotnetstore.Security.AspNetCore.RateLimitingExtensions
+Dotnetstore.Security.AspNetCore.SecurityHeadersExtensions
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.CacheControl.get -> string?
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.CacheControl.set -> void
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.ContentSecurityPolicy.get -> string?
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.ContentSecurityPolicy.set -> void
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.ContentTypeOptions.get -> string?
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.ContentTypeOptions.set -> void
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.CrossOriginOpenerPolicy.get -> string?
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.CrossOriginOpenerPolicy.set -> void
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.CrossOriginResourcePolicy.get -> string?
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.CrossOriginResourcePolicy.set -> void
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.FrameOptions.get -> string?
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.FrameOptions.set -> void
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.PermissionsPolicy.get -> string?
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.PermissionsPolicy.set -> void
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.ReferrerPolicy.get -> string?
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.ReferrerPolicy.set -> void
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.SecurityHeadersOptions() -> void
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.StrictTransportSecurity.get -> string?
+Dotnetstore.Security.AspNetCore.SecurityHeadersOptions.StrictTransportSecurity.set -> void
+const Dotnetstore.Security.AspNetCore.RateLimitingExtensions.LoginPolicy = "dotnetstore-login" -> string!
+static Dotnetstore.Security.AspNetCore.AuthenticationBuilderExtensions.AddSecurityJwtBearer(this Microsoft.AspNetCore.Authentication.AuthenticationBuilder! builder, string! scheme = "Bearer") -> Microsoft.AspNetCore.Authentication.AuthenticationBuilder!
+static Dotnetstore.Security.AspNetCore.RateLimitingExtensions.AddLoginRateLimiting(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.AspNetCore.LoginRateLimitOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.AspNetCore.SecurityHeadersExtensions.AddSecurityHeaders(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Dotnetstore.Security.AspNetCore.SecurityHeadersOptions!>! configure) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Dotnetstore.Security.AspNetCore.SecurityHeadersExtensions.UseSecurityHeaders(this Microsoft.AspNetCore.Builder.IApplicationBuilder! app) -> Microsoft.AspNetCore.Builder.IApplicationBuilder!
