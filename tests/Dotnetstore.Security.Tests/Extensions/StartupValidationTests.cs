@@ -14,7 +14,7 @@ public class StartupValidationTests
             .BuildServiceProvider();
 
         var exception = Assert.Throws<OptionsValidationException>(
-            () => provider.GetRequiredService<IStartupValidator>().Validate());
+            () => provider.RunStartupValidation());
 
         Assert.Contains("Iterations", exception.Message);
     }
@@ -24,6 +24,6 @@ public class StartupValidationTests
     {
         using var provider = new ServiceCollection().AddSecurity().BuildServiceProvider();
 
-        provider.GetRequiredService<IStartupValidator>().Validate();
+        provider.RunStartupValidation();
     }
 }

@@ -176,7 +176,7 @@ public class LockoutHandlerTests
     {
         using var provider = new ServiceCollection().AddLockout(o => o.MaxFailedAttempts = 2).BuildServiceProvider();
 
-        provider.GetRequiredService<IStartupValidator>().Validate();
+        provider.RunStartupValidation();
         var handler = provider.GetRequiredService<ILockoutHandler>();
         await handler.RecordFailureAsync("k", Ct);
 
@@ -184,7 +184,7 @@ public class LockoutHandlerTests
         Assert.IsType<InMemoryLockoutStore>(provider.GetRequiredService<ILockoutStore>());
 
         using var broken = new ServiceCollection().AddLockout(o => o.MaxFailedAttempts = 0).BuildServiceProvider();
-        Assert.Throws<OptionsValidationException>(() => broken.GetRequiredService<IStartupValidator>().Validate());
+        Assert.Throws<OptionsValidationException>(() => broken.RunStartupValidation());
     }
 
     [Fact]

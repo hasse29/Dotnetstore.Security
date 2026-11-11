@@ -1,6 +1,11 @@
 # Changelog
 
-## 1.0.0 (unreleased)
+## 1.1.0
+
+- Packages now target both .NET 10 and .NET 11 (Microsoft package dependencies track the target framework)
+- Tests and CI run against both target frameworks
+
+## 1.0.0
 
 - Argon2id password hashing with optional peppers, pepper IDs and rehash detection
 - AES-256-GCM encryption with key rotation and associated data

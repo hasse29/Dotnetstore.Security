@@ -183,10 +183,10 @@ public class TotpHandlerTests
     {
         using var provider = new ServiceCollection().AddTotp(o => o.Digits = 8).BuildServiceProvider();
 
-        provider.GetRequiredService<IStartupValidator>().Validate();
+        provider.RunStartupValidation();
         Assert.Equal(8, provider.GetRequiredService<ITotpHandler>().GenerateCode(RfcSecret).Length);
 
         using var broken = new ServiceCollection().AddTotp(o => o.Digits = 5).BuildServiceProvider();
-        Assert.Throws<OptionsValidationException>(() => broken.GetRequiredService<IStartupValidator>().Validate());
+        Assert.Throws<OptionsValidationException>(() => broken.RunStartupValidation());
     }
 }
