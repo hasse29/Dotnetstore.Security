@@ -127,13 +127,13 @@ public class PasswordPolicyTests
     {
         using var provider = new ServiceCollection().AddPasswordPolicy(o => o.MinLength = 16).BuildServiceProvider();
 
-        provider.GetRequiredService<IStartupValidator>().Validate();
+        provider.RunStartupValidation();
         Assert.Contains(
             PasswordViolation.TooShort,
             provider.GetRequiredService<IPasswordPolicy>().Validate("fifteen chars!!").Violations);
 
         using var broken = new ServiceCollection().AddPasswordPolicy(o => o.MinLength = 1).BuildServiceProvider();
-        Assert.Throws<OptionsValidationException>(() => broken.GetRequiredService<IStartupValidator>().Validate());
+        Assert.Throws<OptionsValidationException>(() => broken.RunStartupValidation());
     }
 }
 
@@ -270,7 +270,7 @@ public class BreachedPasswordCheckerTests
             .AddBreachedPasswordChecker(o => o.MinimumBreachCount = 0)
             .BuildServiceProvider();
 
-        Assert.Throws<OptionsValidationException>(() => provider.GetRequiredService<IStartupValidator>().Validate());
+        Assert.Throws<OptionsValidationException>(() => provider.RunStartupValidation());
     }
 
     [Fact]

@@ -181,13 +181,13 @@ public class SignedDataHandlerTests
             })
             .BuildServiceProvider();
 
-        provider.GetRequiredService<IStartupValidator>().Validate();
+        provider.RunStartupValidation();
         var handler = provider.GetRequiredService<ISignedDataHandler>();
 
         Assert.Same(handler, provider.GetRequiredService<ISignedDataHandler>());
         Assert.True(handler.TryValidate(handler.Sign("x", "p"), "p", out _));
 
         using var broken = new ServiceCollection().AddSignedData().BuildServiceProvider();
-        Assert.Throws<OptionsValidationException>(() => broken.GetRequiredService<IStartupValidator>().Validate());
+        Assert.Throws<OptionsValidationException>(() => broken.RunStartupValidation());
     }
 }

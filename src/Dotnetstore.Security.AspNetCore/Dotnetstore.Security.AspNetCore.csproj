@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>Dotnetstore.Security.AspNetCore</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Description>ASP.NET Core JWT bearer authentication for Dotnetstore.Security</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>

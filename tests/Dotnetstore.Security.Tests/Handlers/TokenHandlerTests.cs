@@ -276,7 +276,7 @@ public class TokenHandlerTests
         using var provider = new ServiceCollection().AddTokens().BuildServiceProvider();
 
         Assert.Throws<OptionsValidationException>(() => provider.GetRequiredService<ITokenHandler>());
-        Assert.Throws<OptionsValidationException>(() => provider.GetRequiredService<IStartupValidator>().Validate());
+        Assert.Throws<OptionsValidationException>(() => provider.RunStartupValidation());
     }
 
     private static (string Private, string Public) NewKeyPair(SigningAlgorithm algorithm, int rsaBits = 2048)

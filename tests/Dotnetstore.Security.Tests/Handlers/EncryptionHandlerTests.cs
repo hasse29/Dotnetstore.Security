@@ -248,6 +248,6 @@ public class EncryptionHandlerTests
         using var provider = new ServiceCollection().AddEncryption().BuildServiceProvider();
 
         Assert.Throws<OptionsValidationException>(() => provider.GetRequiredService<IEncryptionHandler>());
-        Assert.Throws<OptionsValidationException>(() => provider.GetRequiredService<IStartupValidator>().Validate());
+        Assert.Throws<OptionsValidationException>(() => provider.RunStartupValidation());
     }
 }
