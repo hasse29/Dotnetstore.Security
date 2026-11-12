@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>Dotnetstore.Security</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Description>Common functions to secure the app</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>

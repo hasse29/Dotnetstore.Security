@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+- Re-release of 1.1.0 (no code changes); the 1.1.0 publish run was stuck in the GitHub Actions queue
+
 ## 1.1.0
 
 - Packages now target both .NET 10 and .NET 11 (Microsoft package dependencies track the target framework)
